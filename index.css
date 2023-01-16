@@ -1,0 +1,171 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Poppins:ital@0;1&display=swap');
+
+html,
+body {
+  padding: 1em;
+  margin: 0;
+  font-family: Lato, Poppins, sans-serif;
+  box-sizing: border-b ox;
+  color: #333;
+}
+
+header {
+  position: fixed;
+  right: 0;
+  left: 0;
+  margin: 10px 10%;
+}
+
+#navbar {
+  border: 3px solid;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  height: 30px;
+}
+
+ul {
+  list-style: none;
+}
+
+#navbar ul {
+  display: flex;
+  list-style: none;
+  gap: 10px;
+  align-items: center;
+}
+
+.active {
+  color: #dd8a6f91 !important;
+}
+
+#current-date {
+  float: right;
+}
+
+.line {
+  width: 3px;
+  height: 20px;
+  background-color: black;
+  border-radius: 10px;
+}
+
+#navbar a {
+  text-decoration: none;
+  color: black;
+}
+
+#awesome-book {
+  display: flex;
+  justify-content: center;
+  height: 40vh;
+  flex-direction: column;
+  margin: 0 10%;
+  align-items: center;
+  gap: 20px;
+}
+
+.book-list {
+  border: 0.125rem solid #333;
+  border-radius: 0.25rem;
+  width: 50%;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+}
+
+button {
+  display: flex;
+  background: #dd8a6f91;
+  color: #fff;
+  letter-spacing: 1px;
+  padding: 0.4rem;
+  border: 0.2rem #333 solid;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-left: auto;
+  box-shadow: 5px 5px rgba(0 0 0 / 76%);
+  font-size: 1.7rem;
+}
+
+#input-forms {
+  display: none;
+  justify-content: center;
+  flex-direction: column;
+  font-size: 2rem;
+  margin-top: 50px;
+}
+
+input {
+  padding: 0.5rem;
+  width: 100%;
+  border: 0.125rem #333 solid;
+  border-radius: 0.25rem;
+  outline: none;
+  margin-bottom: 10px;
+  font-size: 1.7rem;
+}
+
+ul li input {
+  width: 90%;
+}
+
+input:focus,
+input:active {
+  border: 2px #333 solid;
+}
+
+tr:nth-child(even) {
+  background-color: lightgray;
+}
+
+.container-book {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem;
+}
+
+.title,
+.form-add {
+  text-align: center;
+  color: #dd8a6f91;
+  margin-top: 80px;
+  font-size: 3rem;
+}
+
+.form-input {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  font-size: 2rem;
+}
+
+.contact-info {
+  display: none;
+  flex-direction: column;
+  margin-top: 70px;
+  justify-content: center;
+  align-items: center;
+}
+
+.contact-p {
+  font-size: 1rem;
+  line-height: 1rem;
+}
+
+.contact-list {
+  list-style: circle;
+  justify-content: center;
+  font-size: 1rem;
+}
+
+footer {
+  border: 3px solid #333;
+  margin: 10px 10%;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}

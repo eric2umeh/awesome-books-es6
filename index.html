@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css" />
+    <title>Awesome Books ES6</title>
+  </head>
+  <body>
+    <header>
+      <nav id="navbar">
+        <a href="#">Awesome Books</a>
+        <ul>
+          <li>
+            <a href="" id="show-list-buttons" class="active">Book List</a>
+          </li>
+          <li>
+            <div class="lines"></div>
+          </li>
+          <li>
+            <a href="" id="add-new-button">Add New</a>
+          </li>
+          <li>
+            <div class="lines"></div>
+          </li>
+          <li>
+            <a href="" id="contact-info-buttons">Contact</a>
+          </li>
+        </ul>
+      </nav>
+      <div id="current-date"></div>
+    </header>
+
+    <main>
+      <!-- List of Books -->
+      <section id="awesome-book">
+        <h2 class="title">All awesome books</h2>
+        <div class="book-list"></div>
+      </section>
+
+      <!-- Add Books -->
+      <section id="input-forms">
+        <h2 class="form-add">Add a new book</h2>
+        <form class="form-input">
+          <ul>
+            <li>
+              <input type="text" name="title" placeholder="Title" required />
+            </li>
+            <li>
+              <input type="text" name="author" placeholder="Author" required />
+            </li>
+            <li>
+              <button type="submit">Add</button>
+            </li>
+          </ul>
+        </form>
+      </section>
+
+      <!-- Contact -->
+      <section id="contact-infos" class="contact-info">
+        <h1 class="title">Contact information</h1>
+        <p class="contact-p">
+          Do you have any questions or you just want to say "Hello"?<br />You
+          can reach out to us!
+        </p>
+        <ul class="contact-list">
+          <li>Our e-mail: mail@mail.com</li>
+          <li>Our phone number: 0043586334433</li>
+          <li>Our address: Ajose Adeogun, Utako Abuja, Nigeria</li>
+        </ul>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <p>Copyright <span id="year"></span></p>
+    </footer>
+    <script src="index.js"></script>
+  </body>
+</html>
