@@ -1,4 +1,5 @@
-import { DateTime } from 'luxon';
+import { DateTime } from './modules/luxon/src/luxon.js';
+import Book from './modules/index.js';
 
 const inputFormSection = document.getElementById('input-forms');
 const awesomeBooksSection = document.getElementById('awesome-book');
@@ -6,23 +7,20 @@ const showListButton = document.getElementById('show-list-buttons');
 const addNewButton = document.getElementById('add-new-button');
 const contactInfoSection = document.getElementById('contact-infos');
 const contactInfoButton = document.getElementById('contact-info-buttons');
-const divTime = document.querySelector('#current-date');
+const form = document.querySelector('.form-input');
+const [title, author] = form.elements;
 
-setInterval(() => {
-  const dts = DateTime.now();
-  divTime.textContent = dts.toLocaleString(DateTime.DATETIME_FULL_WITH_SECONDS);
-}, 1000);
-
+// switch nav menu
 const switchMode = (node) => {
   if (showListButton !== node && showListButton.classList.contains('active')) {
     showListButton.classList.remove('active');
   } else if (
-    addNewButton !== node 
+    addNewButton !== node
     && addNewButton.classList.contains('active')
   ) {
     addNewButton.classList.remove('active');
   } else if (
-    contactInfoButton !== node 
+    contactInfoButton !== node
     && contactInfoButton.classList.contains('active')
   ) {
     contactInfoButton.classList.remove('active');
@@ -59,18 +57,27 @@ contactInfoButton.addEventListener('click', (event) => {
   inputFormSection.style.display = 'none';
 });
 
-document.getElementById('current-date').innerHTML = new Date().toLocaleString();
-document.getElementById('year').innerHTML = new Date().getFullYear();
+// Luxon date and time
+const time = () => {
+  const dts = document.querySelector('#current-date');
+  dts.textContent = DateTime.now().toLocaleString({
+    hour12: false,
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
+  });
+};
+setInterval(time, 1000);
 
-const listBooks = document.querySelector('.book-list');
-const form = document.querySelector('.form-input');
-const [title, author] = form.elements;
-
+// Books
 const inputBook = {};
-let books = new Array([]);
+const objBook = new Book();
 
 if (localStorage.savedBooks) {
-  books = JSON.parse(localStorage.getItem('savedBooks'));
+  objBook.books = JSON.parse(localStorage.getItem('savedBooks'));
 }
 
 title.addEventListener('change', () => {
@@ -82,56 +89,13 @@ author.addEventListener('change', () => {
 });
 
 const populateFields = () => {
-  localStorage.setItem('savedBooks', JSON.stringify(books));
-};
-
-const Book = class {
-  constructor(title, author) {
-    this.title = title;
-    this.author = author;
-  }
-
-  static removeBook(book) {
-    const result = books.filter((b) => b !== book);
-    books = result;
-    populateFields();
-  }
-
-  static addBook = (newBook) => {
-    books.push(newBook);
-    populateFields();
-    this.displayBooks();
-  };
-
-  static displayBooks = () => {
-    listBooks.innerHTML = '';
-    books.map((book) => {
-      const bookDiv = document.createElement('tr');
-      const elementBook = document.createElement('td');
-      const deleteBtn = document.createElement('button');
-      deleteBtn.textContent = 'Remove';
-
-      elementBook.textContent = `"${book.title}" by ${book.author}`;
-
-      bookDiv.classList.add('container-book');
-      bookDiv.appendChild(elementBook);
-      bookDiv.appendChild(deleteBtn);
-
-      listBooks.appendChild(bookDiv);
-
-      deleteBtn.addEventListener('click', () => {
-        this.removeBook(book);
-        listBooks.removeChild(bookDiv);
-      });
-      return listBooks;
-    });
-  };
+  localStorage.setItem('savedBooks', JSON.stringify(objBook.books));
 };
 
 form.addEventListener('submit', (e) => {
   e.preventDefault();
-  Book.addBook(new Book(inputBook.title, inputBook.author));
+  objBook.addBook(new Book(inputBook.title, inputBook.author));
 });
 
-Book.displayBooks();
+objBook.displayBooks();
 populateFields();
