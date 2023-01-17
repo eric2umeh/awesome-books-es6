@@ -10,9 +10,20 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "hint": "^7.1.3"
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.27.4",
+    "hint": "^7.1.3",
+    "stylelint": "^14.16.1",
+    "stylelint-config-standard": "^29.0.0",
+    "stylelint-csstree-validator": "^2.0.0",
+    "stylelint-scss": "^4.3.0"
   },
   "dependencies": {
+    "-": "^0.0.1",
+    "eslint-config-airbnb": "^19.0.4",
+    "g": "^2.0.1",
     "luxon": "^3.2.1"
   }
 }
