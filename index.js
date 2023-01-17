@@ -94,8 +94,8 @@ const populateFields = () => {
 
 form.addEventListener('submit', (e) => {
   e.preventDefault();
-  Book.addBook(new Book(inputBook.title, inputBook.author));
+  objBook.addBook(new Book(inputBook.title, inputBook.author));
 });
 
-Book.displayBooks();
+objBook.displayBooks();
 populateFields();

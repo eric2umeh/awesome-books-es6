@@ -1,31 +1,31 @@
 const listBooks = document.querySelector('.book-list');
-let books = new Array([]);
-
-const populateFields = () => {
-  localStorage.setItem('savedBooks', JSON.stringify(books));
-};
 
 const Book = class {
   constructor(title, author) {
     this.title = title;
     this.author = author;
+    this.books = new Array([]);
   }
 
-  static removeBook(book) {
-    const result = books.filter((b) => b !== book);
-    books = result;
-    populateFields();
+  populateFields = () => {
+    localStorage.setItem('savedBooks', JSON.stringify(this.books));
+  };
+
+  removeBook(book) {
+    const result = this.books.filter((b) => b !== book);
+    this.books = result;
+    this.populateFields();
   }
 
-  static addBook = (newBook) => {
-    books.push(newBook);
-    populateFields();
+  addBook = (newBook) => {
+    this.books.push(newBook);
+    this.populateFields();
     this.displayBooks();
   };
 
-  static displayBooks = () => {
+  displayBooks = () => {
     listBooks.innerHTML = '';
-    books.map((book) => {
+    this.books.map((book) => {
       const bookDiv = document.createElement('tr');
       const elementBook = document.createElement('td');
       const deleteBtn = document.createElement('button');
