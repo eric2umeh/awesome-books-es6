@@ -28,7 +28,7 @@
 
 # 📖 Javascript Course: Awesome Books ES6 <a name="about-project"></a>
 
-**[Javascript Course: Awesome Books ES6]** In this course, we would add, list, store and remove books using ES6.
+In this course, we would add, list, store and remove books. Built using JavaScript ES6.
 
 ## 🛠 Built With <a name="built-with"></a>
 
